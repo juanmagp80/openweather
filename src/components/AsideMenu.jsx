@@ -7,44 +7,46 @@ import {
   ListItemSuffix,
   Chip,
 } from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
+
+import sunny from "/public/icons/wi-day-sunny.svg";
+import cloudy from "/public/icons/wi-day-showers.svg";
+import satellite from "/public/icons/satellite.svg";
+import { GrWebcam } from "react-icons/gr";
+import { CiMap } from "react-icons/ci";
 
 export default function AsideMenu() {
   return (
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-      <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray">
-          Sidebar
+    <Card className="h-[calc(100vh-2rem)] rounded-xl shadow-2xl w-full max-w-[20rem] p-4 bg-blue-200 shadow-blue-gray-900/5">
+      <div className="flex flex-row mb-2 p-4">
+        <img src="./logoweather.png" className="h-28 w-28" alt="Logo" />
+        <Typography
+          className="text-2xl mt-6 font-poppins font-bold"
+          variant="h5"
+          color="blue-gray"
+        >
+          Open Wheather
         </Typography>
       </div>
-      <List>
-        <ListItem>
+      <List className="flex-col mt-4">
+        <ListItem className="mb-4 hover:bg-bluehover transition-colors duration-600 ">
           <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
+            <img src={sunny} className="h-7 w-7" alt="Weather Icon" />
           </ListItemPrefix>
-          Dashboard
+          El tiempo en 7 dias
         </ListItem>
-        <ListItem>
+        <ListItem className="mb-4 hover:bg-bluehover">
           <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
+            <img src={cloudy} className="h-7 w-7" alt="Weather Icon" />
           </ListItemPrefix>
-          E-Commerce
+          El tiempo en 14 días
         </ListItem>
-        <ListItem>
+        <ListItem className="mb-4 hover:bg-bluehover">
           <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
+            <img src={satellite} className="h-7 w-7" alt="Weather Icon" />
           </ListItemPrefix>
-          Inbox
+          El tiempo hoy
           <ListItemSuffix>
             <Chip
-              value="14"
               size="sm"
               variant="ghost"
               color="blue-gray"
@@ -52,23 +54,17 @@ export default function AsideMenu() {
             />
           </ListItemSuffix>
         </ListItem>
-        <ListItem>
+        <ListItem className="mb-4 hover:bg-bluehover">
           <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
+            <GrWebcam className="h-7 w-7" />
           </ListItemPrefix>
-          Profile
+          Webcams
         </ListItem>
-        <ListItem>
+        <ListItem className="mb-4 hover:bg-bluehover">
           <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
+            <CiMap className="h-7 w-7" />
           </ListItemPrefix>
-          Settings
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <PowerIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Log Out
+          Mapa del tiempo
         </ListItem>
       </List>
     </Card>
