@@ -5,6 +5,14 @@ import Card from "./Card";
 export default function SevenDayWeather() {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState(null);
+  const [maxTemp, setMaxTemp] = useState(null);
+  const [minTemp, setMinTemp] = useState(null);
+  useEffect(() => {
+    axios.get("URL_DE_TU_API").then((response) => {
+      setMaxTemp(response.data.main.temp_max);
+      setMinTemp(response.data.main.temp_min);
+    });
+  }, []);
   useEffect(() => {
     axios
       .get("http://ip-api.com/json")
@@ -28,7 +36,7 @@ export default function SevenDayWeather() {
   console.log(weatherData);
   return (
     <>
-      <div className="p-4 text-xl font-bold ">
+      <div className="p-4 text-center text-2xl font-bold ">
         <h1>El tiempo en {city} en los próximos 7 días</h1>
       </div>
       <div className="flex flex-row mt-20 ">
@@ -40,6 +48,8 @@ export default function SevenDayWeather() {
               description={day.weather[0].description}
               key={index}
               dt={day.dt}
+              maxTemp={Math.round(day.temp.max)}
+              minTemp={Math.round(day.temp.min)}
             >
               {/* Muestra los datos del día aquí */}
               <p>{day.temp && day.temp.day}</p>
