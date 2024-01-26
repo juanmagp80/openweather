@@ -1,12 +1,14 @@
 import { FaSun, FaCloud, FaBolt, FaSnowflake, FaSmog } from "react-icons/fa";
-import DaySunny from "../../public/icons/DaySunny";
+import SvgComponent from "../../public/icons/DaySunny";
+import CloudyIcon from "../../public/icons/CloudyIcon";
 
 const getWeatherIcon = (description) => {
+  console.log(`Description: ${description}`);
   switch (description) {
     case "cielo claro":
-      return <DaySunny />;
+      return <SvgComponent />;
     case "nubes":
-      return <FaCloud />;
+      return <CloudyIcon />;
     case "tormenta":
       return <FaBolt />;
     case "nieve":
@@ -16,7 +18,7 @@ const getWeatherIcon = (description) => {
   }
 };
 
-const Card = ({ temp, description, dt, maxTemp, minTemp, wind }) => {
+const Card = ({ temp, description, dt, maxTemp, minTemp, wind, daily }) => {
   const date = new Date(dt * 1000);
   const dayOfWeek = date.toLocaleDateString("es-ES", { weekday: "long" });
   const today = new Date();
@@ -49,6 +51,9 @@ const Card = ({ temp, description, dt, maxTemp, minTemp, wind }) => {
         </button>
       </div>
       <div className="wind mt-4 text-sm text-black">{wind} km/h</div>
+      <div className="temp mt-4 text-center text-sm font-bold">
+        {daily}% Prob Lluvia
+      </div>
     </div>
   );
 };
