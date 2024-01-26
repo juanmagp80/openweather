@@ -17,10 +17,10 @@ import { CiMap } from "react-icons/ci";
 export default function AsideMenu() {
   return (
     <Card className="h-[calc(100vh-2rem)]  max-w-[20rem] p-4 bg-blue-200 w-72 shadow-blue-gray-900/5">
-      <div className="flex flex-row mb-2 p-4">
+      <div className="flex flex-col mb-2 p-1">
         <img src="./logoweather.png" className="h-28 w-28" alt="Logo" />
         <Typography
-          className="text-3xl mt-6 font-poppins font-bold"
+          className="text-2xl mt-1 font-poppins font-bold"
           variant="h5"
           color="blue-gray"
         >

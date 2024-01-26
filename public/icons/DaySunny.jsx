@@ -1,8 +1,10 @@
 import * as React from "react";
 
-function SvgComponent(props) {
+function DaySunny(props) {
   return (
     <svg
+      width={60}
+      height={60}
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
@@ -15,4 +17,4 @@ function SvgComponent(props) {
   );
 }
 
-export default SvgComponent;
+export default DaySunny;

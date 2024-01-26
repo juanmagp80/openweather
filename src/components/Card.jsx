@@ -1,20 +1,25 @@
 import { FaSun, FaCloud, FaBolt, FaSnowflake, FaSmog } from "react-icons/fa";
 import SvgComponent from "../../public/icons/DaySunny";
 import CloudyIcon from "../../public/icons/CloudyIcon";
+import ClaroNubes from "../../public/icons/claroNubes";
+import DaySunny from "../../public/icons/DaySunny";
+import DiaClaro from "../../public/icons/DiaClaro";
 
 const getWeatherIcon = (description) => {
   console.log(`Description: ${description}`);
   switch (description) {
     case "cielo claro":
-      return <SvgComponent />;
+      return <DiaClaro />;
     case "nubes":
       return <CloudyIcon />;
     case "tormenta":
       return <FaBolt />;
     case "nieve":
       return <FaSnowflake />;
+    case "nubes dispersas":
+      return <ClaroNubes />;
     default:
-      return <FaSmog />;
+      return <DaySunny />;
   }
 };
 
@@ -24,9 +29,11 @@ const Card = ({ temp, description, dt, maxTemp, minTemp, wind, daily }) => {
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
+  console.log(daily);
+  console.log(description);
 
   return (
-    <div className="flex flex-col bg-indigo-100 items-center justify-between shadow-xl rounded p-4 m-2 w-28 h-full">
+    <div className="flex flex-col bg-blue-300 items-center justify-between shadow-xl rounded p-4 m-2 w-28 h-full">
       <div className=" flex flex-col items-center rounded w-full h-full flex-1">
         <div className="day text-lg font-bold">{dayOfWeek}</div>
         <div className="date text-sm text-black">
