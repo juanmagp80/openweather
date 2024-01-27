@@ -1,29 +1,46 @@
 import * as React from "react";
 const DiaClaro = (props) => (
   <svg
-    viewBox="0 0 512 512"
     xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    xmlSpace="preserve"
-    width={60}
-    height={60}
+    shapeRendering="geometricPrecision"
     style={{
-      shapeRendering: "geometricPrecision",
-      fillRule: "evenodd",
-      clipRule: "evenodd",
+      whiteSpace: "pre",
     }}
+    textRendering="geometricPrecision"
+    viewBox="0 0 64 64"
+    width={70}
+    height={70}
     {...props}
   >
-    <defs>
-      <path
-        id="a"
-        d="M376 338c2 2 2 6 0 8-3 2-6 2-9 0l-62-63c-2-2-2-6 0-8s6-2 8 0l63 63zM175 137c2 2 2 6 0 8s-6 2-8 0l-63-63c-2-2-2-6 0-8 3-2 6-2 9 0l62 63zm251 67c4 0 6 3 6 6s-2 6-6 6h-88c-4 0-6-3-6-6s2-6 6-6h88zm-284 0c4 0 6 3 6 6s-2 6-6 6H54c-4 0-6-3-6-6s2-6 6-6h88zM367 74c3-2 6-2 9 0 2 2 2 6 0 8l-63 63c-2 2-6 2-8 0s-2-6 0-8l62-63zM167 275c2-2 6-2 8 0s2 6 0 8l-62 63c-3 2-6 2-9 0-2-2-2-6 0-8l63-63zm198-19c4 1 5 4 4 7-2 3-5 5-8 4l-33-14c-3-1-4-5-3-8s5-4 8-3l32 14zm-213-89c3 2 4 5 3 8s-5 4-8 3l-33-14c-3-1-4-4-3-7s5-5 8-3l33 13zm134-83c1-3 4-4 7-3s5 5 3 8l-13 33c-1 3-5 4-8 3s-4-5-3-8l14-33zm-89 214c1-3 5-4 8-3s4 5 3 8l-14 33c-1 3-4 4-7 3s-5-5-4-8l14-33zm164-144c3-2 6 0 8 3 1 3-1 6-4 7l-32 14c-3 1-7 0-8-3s0-7 3-8l33-13zm-214 88c3-1 7 0 8 3s0 7-3 8l-33 14c-3 1-6-1-8-4-1-3 0-6 3-7l33-14zm149 89c2 3 0 7-3 8s-6 0-7-3l-14-33c-1-3 0-7 3-8s7 0 8 3l13 33zm-88-214c1 3 0 7-3 8s-7 0-8-3l-13-33c-2-3 0-6 3-8 3-1 6 0 8 4l13 32zm26-93c0-4 3-6 6-6s6 2 6 6v88c0 3-3 6-6 6s-6-3-6-6V24zm0 284c0-3 3-6 6-6s6 3 6 6v88c0 4-3 6-6 6s-6-2-6-6v-88zm6-24c41 0 74-33 74-74s-33-74-74-74-74 33-74 74 33 74 74 74z"
-        style={{
-          fill: "#ffd153",
-        }}
-      />
-    </defs>
-    <use xlinkHref="#a" />
+    <style>
+      {
+        "@keyframes a0_t{0%{transform:translate(32px,32px) scale(1,1) translate(-14.7px,-14.7px);animation-timing-function:cubic-bezier(.86,0,.07,1)}50%{transform:translate(32px,32px) scale(.7,.7) translate(-14.7px,-14.7px);animation-timing-function:cubic-bezier(.86,0,.07,1)}to{transform:translate(32px,32px) scale(1,1) translate(-14.7px,-14.7px)}}@keyframes a1_t{0%{transform:translate(32px,32px) rotate(0deg) translate(-14.7px,-14.7px)}to{transform:translate(32px,32px) rotate(360deg) translate(-14.7px,-14.7px)}}@keyframes a1_o{0%{opacity:1;animation-timing-function:cubic-bezier(.445,.05,.55,.95)}50%{opacity:.2;animation-timing-function:cubic-bezier(.445,.05,.55,.95)}to{opacity:1}}"
+      }
+    </style>
+    <circle r={8.7} fill="#FFCE55" transform="translate(32 32)" />
+    <circle
+      r={5.7}
+      fill="#FFAF57"
+      style={{
+        animation: "3s linear infinite both a0_t",
+      }}
+      transform="translate(32 32)"
+    />
+    <g
+      style={{
+        animation: "3s linear infinite both a1_t,3s linear infinite both a1_o",
+      }}
+      transform="translate(17.3 17.3)"
+    >
+      <circle r={1.7} fill="#FFCE55" transform="translate(14.7 1.7)" />
+      <circle r={1.7} fill="#FFCE55" transform="translate(14.7 27.7)" />
+      <circle r={1.7} fill="#FFCE55" transform="translate(1.7 14.7)" />
+      <circle r={1.7} fill="#FFCE55" transform="translate(27.7 14.7)" />
+      <circle r={1.7} fill="#FFCE55" transform="translate(5.5 5.5)" />
+      <circle r={1.7} fill="#FFCE55" transform="translate(23.9 23.9)" />
+      <circle r={1.7} fill="#FFCE55" transform="translate(5.5 23.9)" />
+      <circle r={1.7} fill="#FFCE55" transform="translate(23.9 5.5)" />
+    </g>
   </svg>
 );
 export default DiaClaro;

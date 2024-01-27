@@ -3,8 +3,8 @@ import * as React from "react";
 function DaySunny(props) {
   return (
     <svg
-      width={60}
-      height={60}
+      width={70}
+      height={70}
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"

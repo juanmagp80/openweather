@@ -16,18 +16,18 @@ import { CiMap } from "react-icons/ci";
 
 export default function AsideMenu() {
   return (
-    <Card className="h-[calc(100vh-2rem)]  max-w-[20rem] p-4 bg-blue-200 w-72 shadow-blue-gray-900/5">
-      <div className="flex flex-col mb-2 p-1">
-        <img src="./logoweather.png" className="h-28 w-28" alt="Logo" />
+    <Card className="h-[calc(100vh-2rem)]  max-w-[20rem] p-4 bg-blue-200 w-52 shadow-blue-gray-900/5">
+      <div className="flex flex-col mb-1">
+        <img src="./weather.png" className="h-28 w-28" alt="Logo" />
         <Typography
-          className="text-2xl mt-1 font-poppins font-bold"
+          className="text-2xl font-poppins font-bold"
           variant="h5"
           color="blue-gray"
         >
           Open Weather
         </Typography>
       </div>
-      <List className="flex-col mt-4">
+      <List className="flex-col mt-12">
         <ListItem className="mb-4 hover:bg-bluehover transition-colors duration-600 ">
           <ListItemPrefix>
             <img src={sunny} className="h-7 w-7" alt="Weather Icon" />

@@ -5,8 +5,8 @@ const ClaroNubes = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     xmlSpace="preserve"
-    width={60}
-    height={60}
+    width={70}
+    height={70}
     style={{
       shapeRendering: "geometricPrecision",
       fillRule: "evenodd",

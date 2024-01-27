@@ -84,13 +84,13 @@ export default function SevenDayWeather() {
 
   return (
     <>
-      <div className="flex flex-col w-screen">
+      <div className="flex flex-col w-screen max-h-screen overflow-hidden">
         <Header
           actualTemp={Math.round(currentTemp)}
           city={city}
           onSearch={onSearch}
         />
-        <div className="flex flex-row mt-20 ml-10 ">
+        <div className="flex max-w-screen max-h-screen overflow-hidden mt-20 ml-10 ">
           {weatherData &&
             weatherData.daily &&
             weatherData.daily.map((day, index) => (

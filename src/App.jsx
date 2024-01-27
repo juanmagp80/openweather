@@ -11,11 +11,11 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="flex">
+      <div className="flex max-w-screen max-h-screen overflow-auto">
         <div className="flex-1">
           <AsideMenu />
         </div>
-        <div className="flex-1 mr-20">
+        <div className=" max-w-screen max-h-screen overflow-hidden">
           <Router>
             <Routes>
               <Route path="/14-dias" element={<FourteenDayWeather />}></Route>

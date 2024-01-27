@@ -5,7 +5,11 @@ export default {
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        fondo: "url('./public/icons/fondo.svg')",
+      },
+    },
   },
   plugins: [],
 };
