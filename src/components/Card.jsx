@@ -24,7 +24,7 @@ const getWeatherIcon = (description) => {
     case "nubes dispersas":
       return <NubesDispersas />;
     case "muy nuboso":
-      return <MuyNuboso />;
+      return <Cloudy />;
     default:
       return <DiaClaro />;
   }
