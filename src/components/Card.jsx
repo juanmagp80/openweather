@@ -42,7 +42,7 @@ const Card = ({ temp, description, dt, maxTemp, minTemp, wind, daily }) => {
   return (
     <div className="flex flex-col bg-gray-200 items-center shadow-xl rounded-xl m-6 w-26 h-full">
       <div className=" flex flex-col items-center rounded w-full h-full flex-1">
-        <div className="day text-lg font-bold">{dayOfWeek}</div>
+        <div className="day uppercase text-lg font-bold">{dayOfWeek}</div>
         <div className="date text-sm text-black">
           {date.toLocaleDateString()}
         </div>
@@ -51,7 +51,9 @@ const Card = ({ temp, description, dt, maxTemp, minTemp, wind, daily }) => {
       <div className="flex items-center justify-center w-full h-full bg-blue-400">
         {getWeatherIcon(description)}
       </div>
-      <p className="text-sm font-poppins font-bold text-black">{description}</p>
+      <p className="text-sm uppercase font-poppins font-bold text-black">
+        {description}
+      </p>
 
       <div className=" flex flex-col items-center justify-center rounded w-full h-full flex-1 p-0 m-0">
         <button
