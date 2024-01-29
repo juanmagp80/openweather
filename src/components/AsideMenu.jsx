@@ -7,6 +7,7 @@ import {
   ListItemSuffix,
   Chip,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 import sunny from "/public/icons/wi-day-sunny.svg";
 import cloudy from "/public/icons/wi-day-showers.svg";
@@ -44,7 +45,7 @@ export default function AsideMenu() {
           <ListItemPrefix>
             <img src={satellite} className="h-7 w-7" alt="Weather Icon" />
           </ListItemPrefix>
-          El tiempo hoy
+          <Link to="/eltiempohoy">El tiempo hoy</Link>
           <ListItemSuffix>
             <Chip
               size="sm"

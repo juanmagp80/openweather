@@ -4,29 +4,24 @@ import TodayWeather from "./components/TodayWeather";
 import Webcam from "./components/Webcam";
 import Maps from "./components/Maps";
 import SevenDayWeather from "./components/SevenDayWeather";
-import AsideMenu from "./components/AsideMenu";
+import { useState } from "react";
 
 import "./App.css";
 
 function App() {
+  const [lat, setLat] = useState(null);
+  const [lon, setLon] = useState(null);
   return (
     <>
-      <div className="flex max-w-screen max-h-screen overflow-auto">
-        <div className="flex-1">
-          <AsideMenu />
-        </div>
-        <div className=" max-w-screen max-h-screen overflow-hidden">
-          <Router>
-            <Routes>
-              <Route path="/14-dias" element={<FourteenDayWeather />}></Route>
-              <Route path="/hoy" element={<TodayWeather />}></Route>
-              <Route path="/webcam" element={<Webcam />}></Route>
-              <Route path="/mapas" element={<Maps />}></Route>
-              <Route path="/" element={<SevenDayWeather />}></Route>
-            </Routes>
-          </Router>
-        </div>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/14-dias" element={<FourteenDayWeather />}></Route>
+          <Route path="/eltiempohoy" element={<TodayWeather />}></Route>
+          <Route path="/webcam" element={<Webcam />}></Route>
+          <Route path="/mapas" element={<Maps />}></Route>
+          <Route path="/" element={<SevenDayWeather />}></Route>
+        </Routes>
+      </Router>
     </>
   );
 }
