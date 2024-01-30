@@ -12,7 +12,6 @@ const Cloudy = (props) => (
     height={70}
     {...props}
   >
-    import * as React from "react"; const Cloudy = (props) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       shapeRendering="geometricPrecision"

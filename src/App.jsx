@@ -13,15 +13,27 @@ function App() {
   const [lon, setLon] = useState(null);
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/14-dias" element={<FourteenDayWeather />}></Route>
-          <Route path="/eltiempohoy" element={<TodayWeather />}></Route>
-          <Route path="/webcam" element={<Webcam />}></Route>
-          <Route path="/mapas" element={<Maps />}></Route>
-          <Route path="/" element={<SevenDayWeather />}></Route>
-        </Routes>
-      </Router>
+      <div className="relative w-screen h-screen">
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute w-screen h-auto top-0 left-0 min-w-full min-h-full max-w-none object-cover"
+        >
+          <source src="/public/icons/nublado.mp4" type="video/mp4" />
+        </video>
+        <div className="relative  bg-opacity-0 h-screen">
+          <Router>
+            <Routes>
+              <Route path="/14-dias" element={<FourteenDayWeather />}></Route>
+              <Route path="/eltiempohoy" element={<TodayWeather />}></Route>
+              <Route path="/webcam" element={<Webcam />}></Route>
+              <Route path="/mapas" element={<Maps />}></Route>
+              <Route path="/" element={<SevenDayWeather />}></Route>
+            </Routes>
+          </Router>
+        </div>
+      </div>
     </>
   );
 }

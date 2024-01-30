@@ -56,7 +56,7 @@ export default function Header({ city, actualTemp, onSearch }) {
         </form>
         <div className="flex ">
           <div className="pt-4 h-3 flex ml-12 text-white font-poppins text-3xl font-bold ">
-            <h1>{city}</h1>
+            <h1 className="text-white font-bold">{city}</h1>
           </div>
           <div className="flex mt-5 ml-10 ">
             <h2 className="text-2xl text-white font-poppins font-bold">
