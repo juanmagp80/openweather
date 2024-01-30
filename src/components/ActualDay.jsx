@@ -14,6 +14,8 @@ function ActualDay() {
     Soleado: "sun.svg",
     Nublado: "cloud.svg",
     Cielo_cubierto: "cielocubierto.svg",
+    Lluvia_moderada_a_intervalos: "lluviaintervalos.svg",
+    Parcialmente_nublado: "lluviaintervalos.svg",
     // Añade más estados del tiempo y nombres de archivos SVG aquí
   };
 
@@ -52,14 +54,24 @@ function ActualDay() {
       getWeather();
     }
   }, [coordinates]);
-
+  let iconPath;
+  if (forecast && forecast.day && forecast.day.condition) {
+    iconPath = `/icons/${
+      weatherIcons[
+        forecast.day.condition.text
+          .replace(/\s+/g, " ")
+          .trim()
+          .replace(/ /g, "_")
+      ]
+    }
+  `;
+  }
+  console.log(iconPath);
+  console.log(iconPath);
   return (
-    <div
-      className="flex items-center justify-center p-4 w-screen min-h-screen mx-auto"
-      style={{ maxWidth: "1024px" }}
-    >
-      <div className="p-4 mx-auto" style={{ maxWidth: "1024px" }}>
-        <div className="flex flex-col p-4 w-1/2 bg-white rounded-xl shadow-xl border-black border-2 ml-96">
+    <div className="flex items-center justify-centerp-4">
+      <div className="flex w-full justify-center">
+        <div className="flex flex-col p-4 w-1/2 bg-white rounded-xl shadow-xl border-black border-2">
           {forecast && forecast.day && (
             <>
               <div className="flex justify-between items-center">
@@ -83,12 +95,13 @@ function ActualDay() {
                   <img
                     width={200}
                     height={200}
-                    src={`../../public/icons/${
-                      weatherIcons[
-                        forecast.day.condition.text.replace(/ /g, "_")
-                      ]
-                    }`}
-                    alt={forecast.day.condition.text}
+                    src={iconPath}
+                    alt={
+                      forecast &&
+                      forecast.day &&
+                      forecast.day.condition &&
+                      forecast.day.condition.text
+                    }
                   />
                 </div>
               </div>

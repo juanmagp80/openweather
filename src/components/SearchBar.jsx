@@ -42,7 +42,7 @@ const SearchBar = (onSearch) => {
   };
   return (
     <>
-      <div className="flex flex-col mr-60 items-center">
+      <div className="flex flex-col mr-60 items-center justify-center">
         <form className="mb-1" onSubmit={handleFormSubmit}>
           <label
             htmlFor="default-search"
@@ -55,7 +55,7 @@ const SearchBar = (onSearch) => {
             <input
               type="search"
               id="default-search"
-              className=" w-96 h-12 p-4 mt-2 ps-10 block text-xl font-poppins placeholder:text-gray-400 text-black border border-gray-300 rounded-lg bg-gray-200 focus:ring-blue-500 focus:border-blue-500 dark:bg-black dark:border-gray-600 dark:placeholder-black dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className=" w-60 h-12  text-xl font-poppins placeholder:text-gray-400 text-black border border-gray-300 rounded-lg bg-gray-200 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-black dark:text-white dark:focus:gray-200 dark:focus:border-blue-500"
               placeholder="Ciudad"
               value={search}
               onChange={handleSearchChange}
@@ -64,13 +64,13 @@ const SearchBar = (onSearch) => {
             <button
               onClick={handleSearchClick}
               type="submit"
-              className="text-black ml-2 mt-2 bg-gray-400 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-black mr-20 ml-2 mt-2 bg-gray-400 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1 dark:bg-gray-400 dark:hover:bg-gray-200 dark:focus:ring-blue-800"
             >
               Buscar
             </button>
           </div>
         </form>
-        <div className="flex mt-0">
+        <div className="flex mt-0 mr-26">
           <h1>{location}</h1>
         </div>
       </div>
