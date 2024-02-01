@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-const SearchBar = ({ onSearch }) => {
-  const [location, setLocation] = useState(null);
+const SearchBar = ({ onSearch, searchedCity, displayedCity, location }) => {
+  console.log(location);
   const [search, setSearch] = useState("");
+  const [weather, setWeather] = useState(null);
+  console.log(searchedCity);
 
   useEffect(() => {
     const getLocation = async () => {
@@ -21,8 +23,10 @@ const SearchBar = ({ onSearch }) => {
 
     getLocation();
   }, []);
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    console.log("Form submitted with search value:", search);
     onSearch(search);
     setSearch("");
   };
@@ -36,24 +40,33 @@ const SearchBar = ({ onSearch }) => {
       setSearch("");
     }
   };
-  const handleSearchClick = () => {
-    onSearch(search);
-    setSearch("");
+  const handleSearchClick = async () => {
+    if (!searchedCity) {
+      alert("Por favor, introduce una ciudad");
+      return;
+    }
+    console.log("Button clicked with searched city:", searchedCity);
+    try {
+      const response = await axios.get(
+        `http://api.weatherapi.com/v1/current.json?key=b43553c1aac3488cae6193412242901&q=${searchedCity}`
+      );
+      // ...
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <>
       <form className="mb-1" onSubmit={handleFormSubmit}>
         <label
           htmlFor="default-search"
-          className=" text-sm font-medium text-gray-900 sr-only dark:text-black"
-        >
-          Search
-        </label>
+          className=" text-xl font-medium text-gray-900 sr-only dark:text-black"
+        ></label>
 
         <input
           type="search"
           id="default-search"
-          className=" w-60 h-12  text-xl font-poppins placeholder:text-gray-400 text-black border border-gray-300 rounded-lg bg-gray-200 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-black dark:text-white dark:focus:gray-200 dark:focus:border-blue-500"
+          className=" w-full md:w-72 h-12 pl-3 text-xl font-poppins placeholder:text-gray-400 text-black border border-gray-300 rounded-lg bg-gray-200 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-black dark:text-white dark:focus:gray-200 dark:focus:border-blue-500"
           placeholder="Ciudad"
           value={search}
           onChange={handleSearchChange}
@@ -67,7 +80,7 @@ const SearchBar = ({ onSearch }) => {
           Buscar
         </button>
       </form>
-      <h1 className="text-white">{location}</h1>
+      <h1 className="text-white uppercase">{location}</h1>
     </>
   );
 };

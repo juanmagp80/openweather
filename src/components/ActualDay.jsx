@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../App.css";
+import { set } from "ol/transform";
 
-function ActualDay() {
-  const [location, setLocation] = useState("");
+function ActualDay({
+  searchedCity,
+  displayedCity,
+  location,
+  setLocation,
+  setWeatherDescription,
+  weatherDescription,
+}) {
   const [forecast, setForecast] = useState({});
-  const [weatherData, setWeatherData] = useState({}); // [1
   const [temperature, setTemperature] = useState(null);
-  const [current, setCurrent] = useState({}); // [1
-  const [astro, setAstro] = useState({}); // [1
+  const [current, setCurrent] = useState({});
+  const [astro, setAstro] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [coordinates, setCoordinates] = useState({
     latitude: null,
     longitude: null,
@@ -20,8 +28,6 @@ function ActualDay() {
     Lluvia_moderada_a_intervalos: "lluviaintervalos.svg",
     Parcialmente_nublado: "lluviaintervalos.svg",
     Lluvia_moderada_: "rainy-6.svg",
-
-    // Añade más estados del tiempo y nombres de archivos SVG aquí
   };
 
   useEffect(() => {
@@ -40,6 +46,39 @@ function ActualDay() {
 
     getCoordinates();
   }, []);
+
+  useEffect(() => {
+    const getWeatherByCity = async () => {
+      try {
+        const weatherResponse = await axios.get(
+          `http://api.weatherapi.com/v1/forecast.json?key=b43553c1aac3488cae6193412242901&q=${searchedCity}&days=1&lang=es`
+        );
+        if (weatherResponse.data.error) {
+          setErrorMessage(weatherResponse.data.error.message);
+          setIsModalOpen(true);
+        } else {
+          setTemperature(weatherResponse.data.current.temp_c);
+          setForecast(weatherResponse.data.forecast.forecastday[0]);
+          setCurrent(weatherResponse.data.current);
+          setAstro(weatherResponse.data.forecast.forecastday[0].astro);
+          setErrorMessage("");
+          setIsModalOpen(false);
+          setLocation(searchedCity);
+          console.log("setting", current.condition.text);
+          setWeatherDescription(weatherResponse.data.current.condition.text);
+          console.log("descripcion", weatherDescription); // Cierra el modal si la búsqueda fue exitosa
+        } // Limpiar el mensaje de error si la búsqueda fue exitosa
+        // Actualiza el nombre de la ciudad
+      } catch (error) {
+        console.error("Error fetching weather data: ", error);
+        setErrorMessage("No se encontró la ciudad");
+      }
+    };
+
+    if (searchedCity) {
+      getWeatherByCity();
+    }
+  }, [searchedCity]);
 
   useEffect(() => {
     const getWeather = async () => {
@@ -61,8 +100,11 @@ function ActualDay() {
       getWeather();
     }
   }, [coordinates]);
+
   let iconPath;
   if (forecast && forecast.day && forecast.day.condition) {
+    weatherDescription = forecast.day.condition.text;
+    setWeatherDescription(weatherDescription);
     iconPath = `/icons/${
       weatherIcons[
         forecast.day.condition.text
@@ -73,14 +115,28 @@ function ActualDay() {
     }
   `;
   }
+
   console.log(forecast);
   console.log(iconPath);
   return (
     <div className="flex items-center justify-center p-4">
       <div className="flex w-full justify-center">
-        <div className="shadow-3d flex flex-col p-4 w-1/2 bg-white rounded-xl  border-gray-300 border-2">
+        <div className="shadow-3d flex flex-col p-4 w-full md:w-1/2 bg-white rounded-xl border-gray-300 border-2">
           {forecast && forecast.day && (
             <>
+              {isModalOpen && (
+                <div className="modal">
+                  <div className="modal-content">
+                    <span
+                      className="close"
+                      onClick={() => setIsModalOpen(false)}
+                    >
+                      &times;
+                    </span>
+                    <p>{errorMessage}</p>
+                  </div>
+                </div>
+              )}
               <div className="flex justify-between items-center">
                 <div className="flex mb-10 flex-col justify-start">
                   <h1 className="text-4xl uppercase font-poppins">
@@ -225,4 +281,5 @@ function ActualDay() {
     </div>
   );
 }
+
 export default ActualDay;
