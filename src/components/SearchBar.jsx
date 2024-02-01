@@ -3,7 +3,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-const SearchBar = ({ onSearch, searchedCity, displayedCity, location }) => {
+const SearchBar = ({
+  onSearch,
+  searchedCity,
+  displayedCity,
+  location,
+  actualTemp,
+  city,
+}) => {
   console.log(location);
   const [search, setSearch] = useState("");
   const [weather, setWeather] = useState(null);
@@ -41,10 +48,6 @@ const SearchBar = ({ onSearch, searchedCity, displayedCity, location }) => {
     }
   };
   const handleSearchClick = async () => {
-    if (!searchedCity) {
-      alert("Por favor, introduce una ciudad");
-      return;
-    }
     console.log("Button clicked with searched city:", searchedCity);
     try {
       const response = await axios.get(
