@@ -49,7 +49,7 @@ const HourWeather = ({ searchedCity }) => {
         }
 
         const weatherResponse = await axios.get(
-          `http://api.weatherapi.com/v1/forecast.json?key=b43553c1aac3488cae6193412242901&q=${locationQuery}&days=9&lang=es`
+          `https://api.weatherapi.com/v1/forecast.json?key=b43553c1aac3488cae6193412242901&q=${locationQuery}&days=9&lang=es`
         );
 
         console.log(weatherResponse.data);
