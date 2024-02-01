@@ -19,6 +19,7 @@ function ActualDay() {
     Cielo_cubierto: "cielocubierto.svg",
     Lluvia_moderada_a_intervalos: "lluviaintervalos.svg",
     Parcialmente_nublado: "lluviaintervalos.svg",
+    Lluvia_moderada_: "rainy-6.svg",
 
     // Añade más estados del tiempo y nombres de archivos SVG aquí
   };
@@ -72,7 +73,7 @@ function ActualDay() {
     }
   `;
   }
-  console.log(iconPath);
+  console.log(forecast);
   console.log(iconPath);
   return (
     <div className="flex items-center justify-center p-4">
@@ -98,10 +99,9 @@ function ActualDay() {
                   </div>
                 </div>
 
-                <div className="flex">
+                <div className="flex w-40  mb-4">
                   <img
-                    width={200}
-                    height={200}
+                    className="w-[200px] h-[160px]"
                     src={iconPath}
                     alt={
                       forecast &&

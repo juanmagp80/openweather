@@ -43,7 +43,7 @@ function Clock(city) {
       </div>
       <div className="flex w-1/2 items-center justify-center">
         <div className="flex flex-col">
-          <SearchBar city={city} />
+          <SearchBar city={city} onSearch={onSearch} />
         </div>
       </div>
     </div>
@@ -57,10 +57,10 @@ function SevenDayWeather() {
 
       <Clock />
 
-      <div className="w-full col-span-1 gap-3 text-left md:col-span-2">
+      <div className="w-full col-span-1 gap-3 text-left ">
         <ActualDay />
       </div>
-      <div className="w-full col-span-1 gap-3 text-left md:col-span-2">
+      <div className="w-full col-span-1 gap-3 text-left ">
         <HourWeather />
       </div>
     </>

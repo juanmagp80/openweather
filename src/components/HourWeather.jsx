@@ -113,7 +113,7 @@ const HourWeather = () => {
                   <h2 className="text-center">{dayOfWeek}</h2>
                   <h2 className="text-center">{day.day.maxtemp_c}Cº</h2>
                   <h2 className="text-center">{day.day.mintemp_c}Cº</h2>
-                  <h1 className="text-2xl text-center font-poppins">
+                  <h1 className=" text-sm text-center font-poppins">
                     {day.day.condition.text}{" "}
                   </h1>
                 </div>

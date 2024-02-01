@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-const SearchBar = (onSearch) => {
+const SearchBar = ({ onSearch }) => {
   const [location, setLocation] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const getLocation = async () => {
@@ -20,7 +21,6 @@ const SearchBar = (onSearch) => {
 
     getLocation();
   }, []);
-  const [search, setSearch] = useState("");
   const handleFormSubmit = (event) => {
     event.preventDefault();
     onSearch(search);
