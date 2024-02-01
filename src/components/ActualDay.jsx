@@ -172,7 +172,7 @@ function ActualDay({
                 <div className="flex flex-col ">
                   <div className="flex gap-3">
                     <img
-                      src="../../public/icons/windsock.svg"
+                      src="/icons/windsock.svg"
                       alt="windsock"
                       className="self-center h-12 w-12"
                     />
@@ -183,7 +183,7 @@ function ActualDay({
                   </div>
                   <div className="flex gap-3 ">
                     <img
-                      src="../../public/icons/humidity.svg"
+                      src="/icons/humidity.svg"
                       alt="humidity"
                       className="self-center h-12 w-12"
                     />
@@ -191,7 +191,7 @@ function ActualDay({
                   </div>
                   <div className="flex gap-3">
                     <img
-                      src="../../public/icons/thermometer.svg"
+                      src="/icons/thermometer.svg"
                       alt="thermometer"
                       className="h-12 w-12 self-center"
                     />
@@ -203,7 +203,7 @@ function ActualDay({
                   </div>
                   <div className="flex gap-3">
                     <img
-                      src="../../public/icons/thermometer-warmer.svg"
+                      src="/icons/thermometer-warmer.svg"
                       alt="thermometer"
                       className="h-12 w-12 self-center"
                     />
@@ -217,7 +217,7 @@ function ActualDay({
                   </div>
                   <div className="flex gap-3">
                     <img
-                      src="../../public/icons/thermometer-colder.svg"
+                      src="/icons/thermometer-colder.svg"
                       alt="thermometer"
                       className="h-12 w-12 self-center"
                     />
@@ -234,7 +234,7 @@ function ActualDay({
                   <div className="flex mr-8">
                     <div className="flex mr-12">
                       <img
-                        src="../../public/icons/thermometer.svg"
+                        src="/icons/thermometer.svg"
                         alt="thermometer"
                         className="h-32 w-32 "
                       />
@@ -248,7 +248,7 @@ function ActualDay({
                   <div className="flex gap-3">
                     <div className="flex ml-12">
                       <img
-                        src="../../public/icons/sunrise.svg"
+                        src="/icons/sunrise.svg"
                         alt="thermometer"
                         className="h-12 w-12 self-center"
                       />
@@ -262,7 +262,7 @@ function ActualDay({
                   <div className="flex gap-3">
                     <div className="flex ml-12">
                       <img
-                        src="../../public/icons/sunset.svg"
+                        src="/icons/sunset.svg"
                         alt="thermometer"
                         className="h-12 w-12 self-center"
                       />

@@ -33,9 +33,9 @@ function getBackgroundVideo(weatherDescription) {
     weatherDescription === "Parcialmente_nublado" ||
     weatherDescription === "Despejado"
   ) {
-    return "../public/icons/soleado.mp4";
+    return "/icons/soleado.mp4";
   } else {
-    return "../public/icons/nublado.mp4 ";
+    return "/icons/nublado.mp4 ";
   }
 }
 
