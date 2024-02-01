@@ -48,7 +48,7 @@ const SearchBar = ({ onSearch, searchedCity, displayedCity, location }) => {
     console.log("Button clicked with searched city:", searchedCity);
     try {
       const response = await axios.get(
-        `http://api.weatherapi.com/v1/current.json?key=b43553c1aac3488cae6193412242901&q=${searchedCity}`
+        `https://api.weatherapi.com/v1/current.json?key=b43553c1aac3488cae6193412242901&q=${searchedCity}`
       );
       // ...
     } catch (error) {

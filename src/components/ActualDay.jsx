@@ -51,7 +51,7 @@ function ActualDay({
     const getWeatherByCity = async () => {
       try {
         const weatherResponse = await axios.get(
-          `http://api.weatherapi.com/v1/forecast.json?key=b43553c1aac3488cae6193412242901&q=${searchedCity}&days=1&lang=es`
+          `https://api.weatherapi.com/v1/forecast.json?key=b43553c1aac3488cae6193412242901&q=${searchedCity}&days=1&lang=es`
         );
         if (weatherResponse.data.error) {
           setErrorMessage(weatherResponse.data.error.message);
@@ -84,7 +84,7 @@ function ActualDay({
     const getWeather = async () => {
       try {
         const weatherResponse = await axios.get(
-          `http://api.weatherapi.com/v1/forecast.json?key=b43553c1aac3488cae6193412242901&q=${coordinates.latitude},${coordinates.longitude}&days=1&lang=es`
+          `https://api.weatherapi.com/v1/forecast.json?key=b43553c1aac3488cae6193412242901&q=${coordinates.latitude},${coordinates.longitude}&days=1&lang=es`
         );
         console.log(weatherResponse.data);
         setTemperature(weatherResponse.data.current.temp_c);
