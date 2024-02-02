@@ -121,7 +121,7 @@ function ActualDay({
   return (
     <div className="flex items-center justify-center p-4">
       <div className="flex w-full justify-center">
-        <div className="shadow-3d flex flex-col p-4 w-full md:w-1/2 bg-white rounded-xl border-gray-300 border-2">
+        <div className="shadow-3d flex font-rubik flex-col p-4 w-full md:w-1/2 bg-white rounded-xl border-gray-300 border-2">
           {forecast && forecast.day && (
             <>
               {isModalOpen && (
@@ -139,17 +139,17 @@ function ActualDay({
               )}
               <div className="flex justify-between items-center">
                 <div className="flex mb-10 flex-col justify-start">
-                  <h1 className="text-4xl uppercase font-poppins">
+                  <h1 className="text-5xl uppercase font-rubik">
                     {" "}
                     {new Date(forecast.date).toLocaleDateString("es-ES", {
                       weekday: "long",
                     })}{" "}
                   </h1>
                   <div className="flex flex-row">
-                    <h1 className="text-xl font-poppins"> {location} </h1>
+                    <h1 className="text-3xl font-rubik"> {location} </h1>
                   </div>
                   <div className="flex">
-                    <h1 className="text-2xl font-poppins">
+                    <h1 className="text-4xl font-rubik">
                       {forecast.day.condition.text}{" "}
                     </h1>
                   </div>

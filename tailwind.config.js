@@ -3,7 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
+      helvetica: ["Helvetica Now Text", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
+      rubik: ["Rubik", "sans-serif"],
     },
     extend: {
       backgroundImage: {
@@ -14,5 +16,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".hide-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".hide-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };

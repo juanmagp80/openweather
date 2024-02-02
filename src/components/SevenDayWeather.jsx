@@ -32,10 +32,10 @@ function Clock({
   return (
     <div className="flex flex-col w-screen mb-20 justify-between mt-10">
       <div className="flex flex-col w-full  items-center justify-center">
-        <h2 className="text-7xl text-white font-bold font-poppins">
+        <h2 className="text-7xl text-white font-bold font-rubik">
           {time.toLocaleTimeString()}
         </h2>
-        <h3 className="text-3xl text-white font-bold mt-2 font-poppins">
+        <h3 className="text-3xl text-white font-bold mt-2 font-rubik">
           {time.toLocaleDateString("es-ES", {
             weekday: "long",
             year: "numeric",

@@ -18,7 +18,7 @@ function BackgroundVideo({ weatherDescription }) {
       autoPlay
       loop
       muted
-      className="absolute w-screen h-auto top-0 left-0 min-w-full min-h-full max-w-none object-cover"
+      className="fixed w-screen h-auto top-0 left-0 min-w-full min-h-full max-w-none object-cover"
     >
       <source src={videoPath} type="video/mp4" />
     </video>

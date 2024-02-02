@@ -63,13 +63,13 @@ const SearchBar = ({
       <form className="mb-1" onSubmit={handleFormSubmit}>
         <label
           htmlFor="default-search"
-          className=" text-xl font-medium text-gray-900 sr-only dark:text-black"
+          className=" text-xl font-rubik text-gray-900 sr-only dark:text-black"
         ></label>
 
         <input
           type="search"
           id="default-search"
-          className=" w-full md:w-72 h-12 pl-3 text-xl font-poppins placeholder:text-gray-400 text-black border border-gray-300 rounded-lg bg-gray-200 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-black dark:text-white dark:focus:gray-200 dark:focus:border-blue-500"
+          className=" w-full font-rubik md:w-72 h-12 pl-3 text-xl placeholder:text-gray-400 text-black border border-gray-300 rounded-lg bg-gray-200 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-black dark:text-white dark:focus:gray-200 dark:focus:border-blue-500"
           placeholder="Ciudad"
           value={search}
           onChange={handleSearchChange}
@@ -83,7 +83,11 @@ const SearchBar = ({
           Buscar
         </button>
       </form>
-      <h1 className="text-white uppercase">{location}</h1>
+      <div className="flex  text-center items-center">
+        <h1 className="text-white ml-20 justiuppercase text-4xl font-rubik text-center">
+          {location}
+        </h1>
+      </div>
     </>
   );
 };
