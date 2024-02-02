@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const HourWeather = ({ searchedCity }) => {
   const [coordinates, setCoordinates] = useState(null);
@@ -76,49 +77,58 @@ const HourWeather = ({ searchedCity }) => {
   };
 
   return (
-    <div className="w-full md:w-3/4 mx-auto my-0 flex flex-wrap">
-      {forecast.length > 0 &&
-        forecast.map((day, index) => {
-          let iconPath;
-          if (day && day.day && day.day.condition) {
-            iconPath = `/icons/${
-              weatherIcons[
-                day.day.condition.text
-                  .replace(/\s+/g, " ")
-                  .trim()
-                  .replace(/ /g, "_")
-              ]
-            }`;
-          }
-          const dayOfWeek = new Date(day.date).toLocaleDateString("es-ES", {
-            weekday: "long",
-          });
+    <div className="w-full flex items-center  mx-auto my-0 ">
+      <button onClick={scrollLeft}>
+        {" "}
+        <FaArrowLeft />
+      </button>
+      <div ref={scrollContainer} className="flex overflow-x-auto">
+        {forecast.length > 0 &&
+          forecast.map((day, index) => {
+            let iconPath;
+            if (day && day.day && day.day.condition) {
+              iconPath = `/icons/${
+                weatherIcons[
+                  day.day.condition.text
+                    .replace(/\s+/g, " ")
+                    .trim()
+                    .replace(/ /g, "_")
+                ]
+              }`;
+            }
+            const dayOfWeek = new Date(day.date).toLocaleDateString("es-ES", {
+              weekday: "long",
+            });
 
-          return (
-            <div key={index} className="w-full md:w-auto p-4">
-              <div className="w-32 h-64 bg-gray-200  shadow-xl border p-4 rounded-xl">
-                <img
-                  className="object-cover "
-                  width={86}
-                  height={86}
-                  src={iconPath}
-                  alt={
-                    day &&
-                    day.day &&
-                    day.day.condition &&
-                    day.day.condition.text
-                  }
-                />
-                <h2 className="text-center">{dayOfWeek}</h2>
-                <h2 className="text-center">{day.day.maxtemp_c}Cº</h2>
-                <h2 className="text-center">{day.day.mintemp_c}Cº</h2>
-                <h1 className=" text-sm text-center font-poppins">
-                  {day.day.condition.text}{" "}
-                </h1>
+            return (
+              <div key={index} className="w-full p-4">
+                <div className="w-32 h-64 bg-gray-200  shadow-xl border p-4 rounded-xl">
+                  <img
+                    className="object-cover "
+                    width={86}
+                    height={86}
+                    src={iconPath}
+                    alt={
+                      day &&
+                      day.day &&
+                      day.day.condition &&
+                      day.day.condition.text
+                    }
+                  />
+                  <h2 className="text-center">{dayOfWeek}</h2>
+                  <h2 className="text-center">{day.day.maxtemp_c}Cº</h2>
+                  <h2 className="text-center">{day.day.mintemp_c}Cº</h2>
+                  <h1 className=" text-sm text-center font-poppins">
+                    {day.day.condition.text}{" "}
+                  </h1>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
+      <button onClick={scrollRight}>
+        <FaArrowRight />
+      </button>
     </div>
   );
 };
