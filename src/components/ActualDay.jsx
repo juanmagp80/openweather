@@ -23,11 +23,15 @@ function ActualDay({
   });
   const weatherIcons = {
     Soleado: "sunny.svg",
-    Nublado: "cloud.svg",
+    Nublado: "cielocubierto.svg",
     Cielo_cubierto: "cielocubierto.svg",
     Lluvia_moderada_a_intervalos: "lluviaintervalos.svg",
     Parcialmente_nublado: "lluviaintervalos.svg",
-    Lluvia_moderada_: "rainy-6.svg",
+    Lluvia_moderada: "rainy-6.svg",
+    Niebla_moderada: "fog.svg",
+    Nieve_moderada: "snowy-4.svg",
+    Fuertes_nevadas: "snowy-6.svg",
+    Fuertes_lluvias: "rainy-7.svg",
   };
 
   useEffect(() => {
